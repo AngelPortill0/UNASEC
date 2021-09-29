@@ -1,0 +1,590 @@
+/*
+paleta:
+#001228
+#002a5c
+#153d5f
+#337AB7
+#485667
+
+*/
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+:root {
+  --primary-color: #002a5c;
+}
+
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 17px;
+  color: #000000;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+a {
+  font-size: 1em;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #e0e0e0;
+  font-family: "Playfair Display", serif;
+}
+
+nav {
+  height: 4em;
+  background-color: #ffffff;
+  border-bottom: 0.3rem solid var(--primary-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav .logo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-left: 0.2em;
+}
+
+nav .logo-wrapper .logo {
+  width: 3.6em;
+  height: 3.6em;
+}
+
+nav .logo-wrapper .college-name {
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.2rem;
+}
+
+nav .mobile-menu {
+  display: block;
+  cursor: pointer;
+  margin-right: 0.3em;
+  margin-top: 1.2em;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+nav .nav-links-wrapper {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  width: 72%;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background-color: #001228;
+}
+
+nav .nav-links-wrapper .mobile-menu-close {
+  float: right;
+  cursor: pointer;
+  margin-top: 1.2em;
+  margin-right: 0.8em;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+nav .nav-links-wrapper .nav-links,
+nav .nav-links-wrapper .login-links {
+  padding: 0;
+  margin-top: 3.2em;
+}
+
+nav .nav-links-wrapper .nav-links li,
+nav .nav-links-wrapper .login-links li {
+  list-style: none;
+  margin-top: 1em;
+  display: inline;
+}
+
+nav .nav-links-wrapper a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.8em;
+  text-align: right;
+  font-weight: 500;
+  /*&:hover {
+        background-color: #002a5c;
+      }*/
+}
+
+.news-container {
+  width: 100%;
+  height: 94vh;
+  background-image: url("../images/learning-blur-mobile.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  height: 80%;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.carousel .carousel__button {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.carousel .carousel__button img {
+  width: 2.3em;
+}
+
+.carousel .carousel__button--left {
+  left: -2.3em;
+}
+
+.carousel .carousel__button--right {
+  right: -2.3em;
+}
+
+.carousel .carousel__container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel .carousel__container .carousel__tracker {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+
+.carousel .carousel__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em 0;
+}
+
+.carousel .carousel__nav .carousel__indicator {
+  background-color: rgba(250, 250, 250, 0.6);
+  border-style: none;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  margin: 0 0.5em;
+  cursor: pointer;
+}
+
+.carousel .carousel__nav .carousel__indicator.current-slide {
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.carousel__slide {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slide .slide__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--primary-color);
+  opacity: 0.95;
+  width: 100%;
+  height: 18em;
+  padding: 1em;
+  border: solid 4px #ffffff;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.carousel__slide .slide__item .news-header {
+  border-bottom: 4px solid #ffffff;
+  margin-bottom: 0.8em;
+}
+
+.carousel__slide .slide__item .news-header h1 {
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.carousel__slide .slide__item .news-header p {
+  font-weight: 400;
+  color: #ffffff;
+  height: 50%;
+  margin-bottom: 0.8em;
+}
+
+.carousel__slide .slide__item .news-description {
+  font-weight: 400;
+  color: #ffffff;
+  height: 25%;
+  width: 100%;
+  margin-bottom: 0.8em;
+}
+
+.carousel__slide .slide__item .logo-wrapper-news {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 2.2em;
+}
+
+.carousel__slide .slide__item .logo-wrapper-news .logo-news {
+  width: 5em;
+  height: 5em;
+}
+
+.about-us {
+  height: 100vh;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #f0f0f0;
+}
+
+.about-us h2 {
+  text-align: left;
+  margin-bottom: 25px;
+  color: #002a5c;
+  border-bottom: 3px solid #002a5c;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.about-us p {
+  line-height: 22px;
+}
+
+.about-us .list-job li {
+  font-family: "roboto", sans-serif;
+  line-height: 22px;
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+footer {
+  background-color: #002a5c;
+}
+
+footer .logo-wrapper-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 80vh;
+}
+
+footer .logo-wrapper-footer .logo-footer {
+  height: 10em;
+  width: 10em;
+}
+
+footer .logo-wrapper-footer .college-name {
+  margin-top: 5%;
+  width: 70%;
+  font-size: 1.8em;
+  color: white;
+  text-align: center;
+}
+
+footer .logo-wrapper-footer p {
+  font-size: 1.8em;
+  color: white;
+  text-align: center;
+}
+
+footer .contact-info-wrapper {
+  background-color: #001228;
+  height: 20vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .contact-info-wrapper .social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .contact-info-wrapper .social-media .social-media-logo {
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0.5em;
+}
+
+footer .contact-info-wrapper .address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1.5em;
+}
+
+footer .contact-info-wrapper .address p {
+  width: 80%;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 440px) {
+  h1 {
+    font-size: 1em;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  .about-us {
+    height: auto;
+  }
+  .about-us .list-job {
+    margin-top: 0.6em;
+  }
+  .about-us .list-job > li {
+    font-size: 0.8em;
+  }
+  footer .logo-wrapper-footer .logo-footer {
+    height: 30%;
+    width: 30%;
+  }
+  footer .logo-wrapper-footer .college-name,
+  footer .logo-wrapper-footer p {
+    font-size: 1.5em;
+  }
+  footer .contact-info-wrapper {
+    height: auto;
+  }
+  footer .contact-info-wrapper .social-media {
+    margin-top: 1em;
+  }
+  footer .contact-info-wrapper .address {
+    margin: 1em 0;
+  }
+}
+
+@media only screen and (min-width: 815px) {
+  nav .mobile-menu,
+  nav .mobile-menu-close {
+    display: none;
+  }
+  nav .nav-links-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: static;
+    z-index: auto;
+    width: auto;
+    height: auto;
+    right: auto;
+    top: auto;
+    background-color: transparent;
+  }
+  nav .nav-links-wrapper .nav-links,
+  nav .nav-links-wrapper .login-links {
+    margin: 0 1em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav .nav-links-wrapper .nav-links li,
+  nav .nav-links-wrapper .login-links li {
+    list-style: none;
+    margin: 0;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: 7rem;
+  }
+  nav .nav-links-wrapper .nav-links li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-decoration: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    padding: 0.5em 0;
+    -webkit-box-shadow: inset 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 0 transparent;
+    background-color: transparent;
+  }
+  nav .nav-links-wrapper .nav-links li:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    -webkit-transform-origin: 0 top 0;
+            transform-origin: 0 top 0;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+  }
+  nav .nav-links-wrapper .nav-links li:hover .nav-links-cta {
+    color: #ffffff;
+  }
+  nav .nav-links-wrapper .nav-links li:hover:before {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  nav .nav-links-wrapper .nav-links li .nav-links-cta {
+    color: #535353;
+    z-index: 5;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+  }
+  nav .nav-links-wrapper a.login-btn {
+    padding: 0.3em 0;
+    border: #003a81 solid 3.5px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    margin-right: 0.5em;
+    text-align: center;
+    color: #535353;
+  }
+  nav .nav-links-wrapper a.login-btn:hover {
+    color: #ffffff;
+    background-color: #003a81;
+    border-radius: 1em;
+  }
+  nav .nav-links-wrapper a.register-btn {
+    padding: 0.3em 0;
+    border: #003a81 solid 3.5px;
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    background-color: #003a81;
+    color: #ffffff;
+    text-align: center;
+  }
+  nav .nav-links-wrapper a.register-btn:hover {
+    background-color: #003a81;
+    border-radius: 1em;
+  }
+  .news-container {
+    background-image: url("../images/learning-img.jpg");
+    width: 100%;
+  }
+  .news-container .carousel {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=main.css.map */
